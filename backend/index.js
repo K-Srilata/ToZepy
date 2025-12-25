@@ -267,11 +267,15 @@ app.post("/uploadProduct",async(req,res)=>{
 })
 
 //
-app.get("/product",async(req,res)=>{
-    const data = await productModel.find({})
-    res.send(JSON.stringify(data)) ///to convert the data in json string format
-})
+// app.get("/product",async(req,res)=>{
+//     const data = await productModel.find({})
+//     res.send(JSON.stringify(data)) ///to convert the data in json string format
+// })
 
+app.get("/product",async(req,res)=>{
+    const data = await productModel.find({}).limit(10);
+    res.json(data); ///to convert the data in json string format
+})
 
 
 //payment
